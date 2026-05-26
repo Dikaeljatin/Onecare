@@ -1,21 +1,79 @@
-import { UserCircleIcon } from "@heroicons/react/24/solid";
+import {
+  WrenchScrewdriverIcon,
+  ClipboardDocumentListIcon,
+  ChatBubbleLeftRightIcon,
+  BeakerIcon,
+  StarIcon,
+  CalendarDaysIcon,
+} from "@heroicons/react/24/outline";
+
+const services = [
+  {
+    name: "Jadwal Tindakan",
+    description: "Operasi & prosedur medis",
+    icon: WrenchScrewdriverIcon,
+    gradient: "from-sky-400 to-sky-500",
+    shadow: "shadow-sky-200",
+  },
+  {
+    name: "Jadwal Pengobatan",
+    description: "Pemeriksaan & terapi",
+    icon: ClipboardDocumentListIcon,
+    gradient: "from-cyan-400 to-cyan-500",
+    shadow: "shadow-cyan-200",
+  },
+  {
+    name: "Jadwal Konsultasi",
+    description: "Diskusi dengan dokter",
+    icon: ChatBubbleLeftRightIcon,
+    gradient: "from-teal-400 to-teal-500",
+    shadow: "shadow-teal-200",
+  },
+  {
+    name: "Jadwal Vaksinasi",
+    description: "Imunisasi & vaksin",
+    icon: BeakerIcon,
+    gradient: "from-emerald-400 to-emerald-500",
+    shadow: "shadow-emerald-200",
+  },
+];
 
 const doctors = [
   {
     name: "Dr. Ahmad Fauzi",
     specialty: "Dokter Umum",
+    rating: 4.8,
+    reviews: 142,
+    available: "Hari ini",
+    initial: "A",
+    color: "from-sky-500 to-cyan-500",
   },
   {
     name: "Dr. Siti Rahmawati",
     specialty: "Dokter Gigi",
+    rating: 4.9,
+    reviews: 218,
+    available: "Besok",
+    initial: "S",
+    color: "from-violet-500 to-purple-500",
   },
   {
     name: "Dr. Budi Santoso",
     specialty: "Dokter Anak",
+    rating: 4.7,
+    reviews: 96,
+    available: "Hari ini",
+    initial: "B",
+    color: "from-emerald-500 to-teal-500",
   },
   {
     name: "Dr. Rina Kartika",
     specialty: "Dokter Mata",
+    rating: 4.9,
+    reviews: 175,
+    available: "27 Mei",
+    initial: "R",
+    color: "from-amber-500 to-orange-500",
   },
 ];
 
@@ -30,117 +88,86 @@ export default function LayananJanjiContent() {
         </p>
       </div>
 
-      {/* Schedule Type Cards */}
+      {/* Service Type Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
-        {/* Jadwal Tindakan */}
-        <button className="flex flex-col items-center gap-4 p-6 bg-gradient-to-b from-sky-400 to-sky-500 rounded-2xl shadow-md shadow-sky-200 hover:shadow-lg hover:shadow-sky-300 transition-all duration-200 group cursor-pointer">
-          <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-sm">
-            <svg
-              className="w-7 h-7 text-gray-800"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+        {services.map((service) => {
+          const Icon = service.icon;
+          return (
+            <button
+              key={service.name}
+              className={`group relative overflow-hidden flex flex-col gap-4 p-6 bg-gradient-to-br ${service.gradient} rounded-2xl shadow-lg ${service.shadow} hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer text-left`}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.8}
-                d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085"
-              />
-            </svg>
-          </div>
-          <span className="text-base font-semibold text-white">Jadwal Tindakan</span>
-        </button>
+              {/* Background decoration */}
+              <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -translate-y-1/3 translate-x-1/3"></div>
 
-        {/* Jadwal Pengobatan */}
-        <button className="flex flex-col items-center gap-4 p-6 bg-gradient-to-b from-sky-400 to-sky-500 rounded-2xl shadow-md shadow-sky-200 hover:shadow-lg hover:shadow-sky-300 transition-all duration-200 group cursor-pointer">
-          <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-sm">
-            <svg
-              className="w-7 h-7 text-gray-800"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.8}
-                d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
-              />
-            </svg>
-          </div>
-          <span className="text-base font-semibold text-white">Jadwal Pengobatan</span>
-        </button>
-
-        {/* Jadwal Konsultasi */}
-        <button className="flex flex-col items-center gap-4 p-6 bg-gradient-to-b from-sky-400 to-sky-500 rounded-2xl shadow-md shadow-sky-200 hover:shadow-lg hover:shadow-sky-300 transition-all duration-200 group cursor-pointer">
-          <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-sm">
-            <svg
-              className="w-7 h-7 text-gray-800"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.8}
-                d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"
-              />
-            </svg>
-          </div>
-          <span className="text-base font-semibold text-white">Jadwal Konsultasi</span>
-        </button>
-
-        {/* Jadwal Vaksinasi */}
-        <button className="flex flex-col items-center gap-4 p-6 bg-gradient-to-b from-sky-400 to-sky-500 rounded-2xl shadow-md shadow-sky-200 hover:shadow-lg hover:shadow-sky-300 transition-all duration-200 group cursor-pointer">
-          <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-sm">
-            <svg
-              className="w-7 h-7 text-gray-800"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.8}
-                d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"
-              />
-            </svg>
-          </div>
-          <span className="text-base font-semibold text-white">Jadwal Vaksinasi</span>
-        </button>
+              <div className="relative z-10">
+                <div className="w-14 h-14 bg-white/25 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-sm border border-white/30 mb-3 group-hover:scale-110 transition-transform">
+                  <Icon className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-base font-bold text-white mb-1">
+                  {service.name}
+                </h3>
+                <p className="text-xs text-white/80">{service.description}</p>
+              </div>
+            </button>
+          );
+        })}
       </div>
 
       {/* Doctor List Section */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 text-center mb-2">
-          Atur Jadwal Dengan Dokter Anda
-        </h2>
-        <p className="text-base text-gray-500 text-center mb-6">
-          Pilih dokter dan atur jadwal konsultasi
-        </p>
+        <div className="flex items-center justify-between mb-5">
+          <div>
+            <h2 className="text-2xl font-bold text-gray-800">
+              Dokter Tersedia
+            </h2>
+            <p className="text-base text-gray-500 mt-0.5">
+              Pilih dokter dan atur jadwal konsultasi Anda
+            </p>
+          </div>
+          <button className="text-base text-sky-600 font-semibold hover:text-sky-700 transition">
+            Filter →
+          </button>
+        </div>
 
-        <div className="space-y-4 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {doctors.map((doctor) => (
             <div
               key={doctor.name}
-              className="flex items-center gap-4 p-4 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all"
+              className="flex items-center gap-4 p-5 bg-white rounded-2xl border border-gray-100 hover:border-sky-200 hover:shadow-md transition-all"
             >
               {/* Doctor Avatar */}
-              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0">
-                <UserCircleIcon className="w-16 h-16 text-gray-400" />
+              <div
+                className={`w-16 h-16 bg-gradient-to-br ${doctor.color} rounded-2xl flex items-center justify-center text-white font-bold text-2xl flex-shrink-0 shadow-md`}
+              >
+                {doctor.initial}
               </div>
 
               {/* Doctor Info */}
               <div className="flex-1 min-w-0">
-                <p className="text-lg font-bold text-gray-800">{doctor.name}</p>
-                <p className="text-sm text-gray-500">{doctor.specialty}</p>
+                <p className="text-base font-bold text-gray-800">
+                  {doctor.name}
+                </p>
+                <p className="text-sm text-gray-500 mb-1.5">
+                  {doctor.specialty}
+                </p>
+                <div className="flex items-center gap-3 text-xs">
+                  <div className="flex items-center gap-1">
+                    <StarIcon className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
+                    <span className="font-semibold text-gray-700">
+                      {doctor.rating}
+                    </span>
+                    <span className="text-gray-400">({doctor.reviews})</span>
+                  </div>
+                  <div className="flex items-center gap-1 text-emerald-600 font-medium">
+                    <CalendarDaysIcon className="w-3.5 h-3.5" />
+                    <span>Tersedia {doctor.available}</span>
+                  </div>
+                </div>
               </div>
 
               {/* Action Button */}
-              <button className="px-5 py-2.5 bg-sky-400 hover:bg-sky-500 text-white font-semibold text-base rounded-full transition-colors shadow-sm">
+              <button className="px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white font-semibold text-sm rounded-xl transition-colors shadow-sm shadow-sky-200 flex-shrink-0">
                 Atur Jadwal
               </button>
             </div>

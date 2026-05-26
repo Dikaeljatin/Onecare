@@ -9,6 +9,8 @@ import {
   CalendarDaysIcon,
   ChatBubbleLeftRightIcon,
   UserIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
 } from "@heroicons/react/24/outline";
 import {
   HomeIcon as HomeIconSolid,
@@ -17,9 +19,10 @@ import {
   ChatBubbleLeftRightIcon as ChatBubbleLeftRightIconSolid,
   UserIcon as UserIconSolid,
 } from "@heroicons/react/24/solid";
+import { useState } from "react";
 
 const menuItems = [
-  { name: "Rekam Medis", icon: HomeIcon, activeIcon: HomeIconSolid, href: "/" },
+  { name: "Rekam Medis", icon: HomeIcon, activeIcon: HomeIconSolid, href: "/dashboard" },
   { name: "Info Kesehatan", icon: HeartIcon, activeIcon: HeartIconSolid, href: "/info-kesehatan" },
   { name: "Layanan Janji", icon: CalendarDaysIcon, activeIcon: CalendarDaysIconSolid, href: "/layanan-janji" },
   { name: "Pesan", icon: ChatBubbleLeftRightIcon, activeIcon: ChatBubbleLeftRightIconSolid, href: "/pesan" },
@@ -28,34 +31,46 @@ const menuItems = [
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <aside className="w-64 bg-white border-r border-gray-200 flex flex-col h-screen sticky top-0">
+    <aside
+      className={`bg-white border-r border-gray-200 flex flex-col h-screen sticky top-0 transition-all duration-300 relative ${
+        isOpen ? "w-64" : "w-20"
+      }`}
+    >
+      {/* Toggle Button - positioned at the middle right edge */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="absolute top-1/2 -translate-y-1/2 -right-4 w-8 h-8 bg-sky-500 hover:bg-sky-600 rounded-full flex items-center justify-center shadow-md shadow-sky-200 transition-colors z-50"
+      >
+        {isOpen ? (
+          <ChevronLeftIcon className="w-4 h-4 text-white" />
+        ) : (
+          <ChevronRightIcon className="w-4 h-4 text-white" />
+        )}
+      </button>
+
       {/* Logo */}
-      <div className="px-6 py-6">
-        <div className="flex items-center justify-center gap-3">
-          <Image
-            src="/images/onecare_logo.png"
-            alt="OneCare Logo"
-            width={44}
-            height={44}
-            className="rounded-xl"
-          />
-          <h1 className="text-[22px] font-bold tracking-tight">
-            <span className="text-gray-800">One</span>
-            <span className="text-sky-500">Care</span>
-          </h1>
-        </div>
+      <div className="px-4 py-5 flex items-center justify-center">
+        <Image
+          src="/images/onecare_logo.png"
+          alt="OneCare Logo"
+          width={isOpen ? 120 : 44}
+          height={isOpen ? 120 : 44}
+        />
       </div>
 
       {/* Divider */}
-      <div className="mx-5 h-px bg-gray-100"></div>
+      <div className="mx-4 h-px bg-gray-100"></div>
 
       {/* Navigation */}
-      <nav className="flex-1 px-4 py-5">
-        <p className="px-3 mb-3 text-sm font-semibold uppercase tracking-wider text-gray-400">
-          Menu
-        </p>
+      <nav className="flex-1 px-3 py-5">
+        {isOpen && (
+          <p className="px-3 mb-3 text-sm font-semibold uppercase tracking-wider text-gray-400">
+            Menu
+          </p>
+        )}
         <ul className="space-y-1">
           {menuItems.map((item) => {
             const isActive = pathname === item.href;
@@ -64,14 +79,17 @@ export default function Sidebar() {
               <li key={item.name}>
                 <Link
                   href={item.href}
+                  title={item.name}
                   className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 ${
                     isActive
                       ? "bg-sky-50 text-sky-600 border border-sky-100"
                       : "text-gray-600 hover:bg-gray-50 hover:text-gray-800"
-                  }`}
+                  } ${!isOpen ? "justify-center" : ""}`}
                 >
-                  <Icon className="w-5 h-5" />
-                  <span className="font-medium text-[15px]">{item.name}</span>
+                  <Icon className="w-5 h-5 flex-shrink-0" />
+                  {isOpen && (
+                    <span className="font-medium text-[15px]">{item.name}</span>
+                  )}
                 </Link>
               </li>
             );
@@ -80,16 +98,20 @@ export default function Sidebar() {
       </nav>
 
       {/* User Card */}
-      <div className="p-4 border-t border-gray-100">
-        <div className="flex items-center gap-3 px-2">
-          <div className="w-9 h-9 bg-sky-100 rounded-full flex items-center justify-center text-sky-600 font-bold text-sm">
+      <div className="p-3 border-t border-gray-100">
+        <div className={`flex items-center gap-3 px-2 ${!isOpen ? "justify-center" : ""}`}>
+          <div className="w-9 h-9 bg-sky-100 rounded-full flex items-center justify-center text-sky-600 font-bold text-sm flex-shrink-0">
             E
           </div>
-          <div className="flex-1 min-w-0">
-            <p className="text-[15px] font-semibold text-gray-800 truncate">Edo</p>
-            <p className="text-sm text-gray-400">Pasien</p>
-          </div>
-          <div className="w-2 h-2 rounded-full bg-green-400"></div>
+          {isOpen && (
+            <>
+              <div className="flex-1 min-w-0">
+                <p className="text-[15px] font-semibold text-gray-800 truncate">Edo</p>
+                <p className="text-sm text-gray-400">Pasien</p>
+              </div>
+              <div className="w-2 h-2 rounded-full bg-green-400"></div>
+            </>
+          )}
         </div>
       </div>
     </aside>
