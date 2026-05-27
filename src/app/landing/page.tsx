@@ -41,7 +41,7 @@ export default function LandingPage() {
             Masuk
           </Link>
           <Link
-            href="/login"
+            href="/register"
             className="px-6 py-2.5 bg-sky-500 text-white font-semibold text-sm rounded-full hover:bg-sky-600 transition shadow-md shadow-sky-200"
           >
             Daftar Sekarang
@@ -386,7 +386,7 @@ export default function LandingPage() {
                 layanan kesehatan bersama OneCare.
               </p>
               <Link
-                href="/login"
+                href="/register"
                 className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-sky-600 font-semibold text-base rounded-full hover:bg-sky-50 transition shadow-xl"
               >
                 Daftar Gratis Sekarang

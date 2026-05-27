@@ -144,12 +144,12 @@ export default function LoginPage() {
             {/* Register Link */}
             <p className="text-center text-base text-gray-500 mt-8">
               Belum punya akun?{" "}
-              <a
-                href="#"
+              <Link
+                href="/register"
                 className="text-sky-600 hover:text-sky-700 font-semibold transition"
               >
                 Daftar Sekarang
-              </a>
+              </Link>
             </p>
           </div>
 
