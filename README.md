@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OneCare
 
-## Getting Started
+Aplikasi web layanan kesehatan yang menghubungkan pasien dengan dokter, fasilitas kesehatan, dan rekam medis dalam satu platform.
 
-First, run the development server:
+## Tentang
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+OneCare adalah project frontend yang dibuat untuk mempermudah akses layanan kesehatan. Lewat aplikasi ini, pengguna bisa melihat rekam medis dari berbagai fasilitas kesehatan, membuat janji untuk tindakan atau pengobatan, membaca artikel kesehatan, dan terhubung dengan customer service.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Aplikasi memiliki halaman landing untuk pengenalan, sistem autentikasi (login & register), dashboard utama, dan beberapa halaman fitur untuk kebutuhan pengguna sehari-hari.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Tema warna pakai biru muda dan putih supaya terasa bersih dan tidak kaku.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Stack
 
-## Learn More
+- Next.js 16 (App Router)
+- TypeScript
+- Tailwind CSS
+- Heroicons
 
-To learn more about Next.js, take a look at the following resources:
+## Halaman
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `/landing` — landing page
+- `/login` & `/register` — autentikasi
+- `/dashboard` — dashboard utama setelah login
+- `/info-kesehatan` — artikel kesehatan (Gizi, Edukasi, Mitos & Fakta)
+- `/layanan-janji` — buat janji untuk tindakan atau pengobatan
+- `/pesan` — chat dengan CS OneCare
+- `/profile` — kelola data pribadi
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Catatan
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Project ini masih dalam tahap pengembangan dan belum terhubung ke backend. Data yang ditampilkan masih dummy untuk keperluan tampilan.

@@ -177,7 +177,7 @@ export default function LoginPage() {
                     <CheckBadgeIcon className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <p className="text-white font-semibold text-sm">500+ Dokter Terpercaya</p>
+                    <p className="text-white font-semibold text-sm">Dokter Terpercaya</p>
                     <p className="text-white/70 text-xs">Konsultasi dengan dokter berlisensi</p>
                   </div>
                 </div>

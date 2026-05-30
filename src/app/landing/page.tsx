@@ -94,24 +94,6 @@ export default function LandingPage() {
                 Pelajari Lebih
               </a>
             </div>
-
-            {/* Trust indicators */}
-            <div className="flex items-center gap-8">
-              <div>
-                <p className="text-3xl font-bold text-gray-900">10K+</p>
-                <p className="text-sm text-gray-500">Pengguna Aktif</p>
-              </div>
-              <div className="h-12 w-px bg-gray-200"></div>
-              <div>
-                <p className="text-3xl font-bold text-gray-900">500+</p>
-                <p className="text-sm text-gray-500">Dokter Terverifikasi</p>
-              </div>
-              <div className="h-12 w-px bg-gray-200"></div>
-              <div>
-                <p className="text-3xl font-bold text-gray-900">50+</p>
-                <p className="text-sm text-gray-500">Fasilitas Kesehatan</p>
-              </div>
-            </div>
           </div>
 
           {/* Right Content - Doctor illustration */}
@@ -371,26 +353,25 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-5xl mx-auto px-8 lg:px-16">
-          <div className="bg-gradient-to-br from-sky-500 to-cyan-500 rounded-3xl p-10 lg:p-16 relative overflow-hidden text-center">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full translate-x-1/3 -translate-y-1/3"></div>
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full -translate-x-1/3 translate-y-1/3"></div>
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-8 lg:px-16">
+          <div className="bg-gradient-to-br from-sky-500 to-cyan-500 rounded-2xl p-8 lg:p-12 relative overflow-hidden text-center">
+            <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full translate-x-1/3 -translate-y-1/3"></div>
+            <div className="absolute bottom-0 left-0 w-36 h-36 bg-white/10 rounded-full -translate-x-1/3 translate-y-1/3"></div>
 
             <div className="relative z-10">
-              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-                Siap Memulai Hidup Lebih Sehat?
+              <h2 className="text-2xl lg:text-3xl font-bold text-white mb-3">
+                Mulai Gunakan OneCare
               </h2>
-              <p className="text-white/90 text-base mb-8 max-w-xl mx-auto">
-                Bergabunglah dengan ribuan pengguna yang telah merasakan kemudahan
-                layanan kesehatan bersama OneCare.
+              <p className="text-white/90 text-sm lg:text-base mb-6 max-w-md mx-auto">
+                Daftar gratis dan akses layanan kesehatan terintegrasi.
               </p>
               <Link
                 href="/register"
-                className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-sky-600 font-semibold text-base rounded-full hover:bg-sky-50 transition shadow-xl"
+                className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-sky-600 font-semibold text-sm rounded-full hover:bg-sky-50 transition shadow-md"
               >
-                Daftar Gratis Sekarang
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                Daftar Sekarang
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
