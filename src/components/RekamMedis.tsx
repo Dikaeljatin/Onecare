@@ -48,14 +48,14 @@ const facilities = [
 export default function RekamMedis() {
   return (
     <section>
-      <div className="flex items-center justify-between mb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-5 gap-3">
         <div>
-          <h2 className="text-2xl font-bold text-gray-800">Rekam Medis</h2>
-          <p className="text-base text-gray-500 mt-0.5">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-800">Rekam Medis</h2>
+          <p className="text-sm md:text-base text-gray-500 mt-0.5">
             Pilih fasilitas kesehatan untuk melihat rekam medis
           </p>
         </div>
-        <button className="text-base text-sky-600 font-semibold hover:text-sky-700 transition flex items-center gap-1">
+        <button className="text-sm md:text-base text-sky-600 font-semibold hover:text-sky-700 transition flex items-center gap-1 self-start sm:self-auto">
           Lihat Semua
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -63,17 +63,17 @@ export default function RekamMedis() {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         {facilities.map((facility) => {
           const Icon = facility.icon;
           return (
             <button
               key={facility.name}
-              className="group flex flex-col gap-4 p-5 bg-white rounded-2xl border border-gray-100 hover:border-sky-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-left"
+              className="group flex flex-col gap-4 p-5 bg-white rounded-2xl border border-gray-100 hover:border-sky-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-left w-full"
             >
               {/* Icon */}
-              <div className={`w-14 h-14 bg-gradient-to-br ${facility.color} rounded-2xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform`}>
-                <Icon className="w-7 h-7 text-white" />
+              <div className={`w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br ${facility.color} rounded-2xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform`}>
+                <Icon className="w-6 h-6 md:w-7 md:h-7 text-white" />
               </div>
 
               {/* Info */}
@@ -89,7 +89,7 @@ export default function RekamMedis() {
               </div>
 
               {/* Footer */}
-              <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+              <div className="flex items-center justify-between pt-3 border-t border-gray-100 w-full">
                 <span className="text-xs text-gray-500">
                   <span className="font-semibold text-gray-700">{facility.visits}</span> kunjungan
                 </span>

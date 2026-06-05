@@ -69,7 +69,7 @@ export default function PesanContent() {
     if (!content.trim()) return;
 
     const newMessage: Message = {
-      id: messages.length + 1,
+      id: Date.now(),
       sender: "me",
       text: content,
       time: new Date().toLocaleTimeString("id-ID", {
@@ -77,13 +77,14 @@ export default function PesanContent() {
         minute: "2-digit",
       }),
     };
-    setMessages([...messages, newMessage]);
+    
+    setMessages((prev) => [...prev, newMessage]);
     setMessageInput("");
 
     // Simulate auto-reply from CS
     setTimeout(() => {
       const reply: Message = {
-        id: messages.length + 2,
+        id: Date.now() + 1,
         sender: "cs",
         text: "Terima kasih atas pesan Anda. Tim kami akan membantu Anda. Mohon tunggu sebentar 🙏",
         time: new Date().toLocaleTimeString("id-ID", {
@@ -102,13 +103,7 @@ export default function PesanContent() {
 
   return (
     <div>
-      {/* Page Title */}
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold text-gray-900">Pesan</h1>
-        <p className="text-lg text-gray-500 mt-1">
-          Hubungi customer service OneCare untuk bantuan
-        </p>
-      </div>
+      {/* Page Title Removed */}
 
       {/* Chat Container */}
       <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden flex h-[calc(100vh-220px)] min-h-[600px]">

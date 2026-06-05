@@ -578,13 +578,7 @@ export default function InfoKesehatanContent() {
   // === MAIN VIEW ===
   return (
     <div>
-      {/* Page Title */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Info Kesehatan</h1>
-        <p className="text-lg text-gray-500 mt-1">
-          Temukan informasi kesehatan terpercaya untuk keluarga Anda
-        </p>
-      </div>
+      {/* Page Title Removed */}
 
       {/* Category Cards (clickable) */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">

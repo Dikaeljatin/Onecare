@@ -81,14 +81,8 @@ export default function ProfileContent() {
 
   return (
     <div>
-      {/* Page Header */}
-      <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900">Profile</h1>
-          <p className="text-lg text-gray-500 mt-1">
-            Kelola informasi pribadi dan data kesehatan Anda
-          </p>
-        </div>
+      {/* Page Header Actions */}
+      <div className="flex flex-wrap items-center justify-end gap-3 mb-6">
 
         {!isEditing ? (
           <button

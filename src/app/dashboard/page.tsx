@@ -1,5 +1,4 @@
-import Sidebar from "@/components/Sidebar";
-import Header from "@/components/Header";
+import DashboardLayout from "@/components/DashboardLayout";
 import BannerCard from "@/components/BannerCard";
 import RekamMedis from "@/components/RekamMedis";
 import QuickStats from "@/components/QuickStats";
@@ -8,45 +7,40 @@ import HealthTips from "@/components/HealthTips";
 
 export default function Dashboard() {
   return (
-    <div className="flex w-full min-h-screen">
-      {/* Sidebar Navigation */}
-      <Sidebar />
+    <DashboardLayout>
+      {/* Greeting */}
+      <div className="mb-6">
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+          Selamat Datang, <span className="text-sky-600">Edo</span>! 👋
+        </h1>
+        <p className="text-base md:text-lg text-gray-500 mt-1">
+          Apa kabarmu hari ini? Semoga kamu baik-baik saja.
+        </p>
+      </div>
 
-      {/* Main Content */}
-      <main className="flex-1 bg-gray-50 min-h-screen">
-        <Header />
+      {/* Quick Stats */}
+      <div className="mb-6">
+        <QuickStats />
+      </div>
 
-        <div className="p-8">
-          {/* Greeting */}
-          <div className="mb-6">
-            <h1 className="text-3xl font-bold text-gray-900">
-              Selamat Datang, <span className="text-sky-600">Edo</span>! 👋
-            </h1>
-            <p className="text-lg text-gray-500 mt-1">
-              Apa kabarmu hari ini? Semoga kamu baik-baik saja.
-            </p>
-          </div>
+      {/* Banner */}
+      <div className="mb-8">
+        <BannerCard />
+      </div>
 
-          {/* Quick Stats */}
-          <QuickStats />
-
-          {/* Banner */}
-          <BannerCard />
-
-          {/* Two-column layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-            <div className="lg:col-span-2">
-              <UpcomingAppointments />
-            </div>
-            <div>
-              <HealthTips />
-            </div>
-          </div>
-
-          {/* Rekam Medis Section */}
-          <RekamMedis />
+      {/* Two-column layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+        <div className="lg:col-span-2">
+          <UpcomingAppointments />
         </div>
-      </main>
-    </div>
+        <div>
+          <HealthTips />
+        </div>
+      </div>
+
+      <div className="mb-8">
+        <RekamMedis />
+      </div>
+    </DashboardLayout>
   );
 }
